@@ -155,11 +155,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3 has-text-centered">Dataset</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            [Write additional dataset description here.]
-          </p>
-        </div>
+
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
@@ -172,6 +168,19 @@
             </p>
           </div>
         </div>
+
+        <div class="content has-text-justified">
+          <p>
+            본 연구에서는 오디오 중심 딥페이크 탐지 모델의 학습과 평가를 위해 기존 FakeAVCeleb 데이터셋을 기반으로 정제된 RealVideo–FakeAudio(Refined RVFA) 데이터를 새롭게 구축하였다. 기존 FakeAVCeleb의 RVFA 구성은 실제 영상에 다른 화자의 합성 음성을 결합한 형태로, 기본적인 오디오–시각 모달리티 불일치를 포함하고 있으나 합성 음성의 품질이 낮아 실제 발화 특성과는 다소 괴리가 있었다. 이로 인해 모델이 오디오 자체의 위조 단서보다는 비교적 쉽게 관측 가능한 음성–입 모양 간 동기화 오류에 과도하게 의존하는 문제가 발생하였다.
+
+            이러한 한계를 보완하기 위해 본 연구에서는 화자 자기변환(voice conversion) 기반의 정밀 합성 절차를 도입하였다. 구체적으로 FakeAVCeleb의 RealVideo–RealAudio 쌍을 기준으로 설정하고, VoxCeleb2 데이터셋에서 동일 화자의 다른 발화를 참조 오디오로 선택하였다. 이후 Seed-VC 모델을 활용하여 원본 오디오의 시간적 구조, 즉 발화 타이밍과 길이, 강도는 그대로 유지하면서 음색만을 참조 화자의 특성으로 변환하였다. 이 과정으로 생성된 합성 음성은 발화 시점과 입 모양이 원본 영상과 정확히 일치하므로 시각적으로는 매우 자연스럽지만, 음향적으로는 새로운 화자 특성을 지닌 위조 음성에 해당한다.
+
+            이와 같이 구축된 Refined RVFA 데이터셋은 높은 수준의 오디오–시각 동기화를 유지하면서도 합성 난이도가 크게 향상된 것이 특징이다. 시각적 단서만으로는 위조 여부를 판단하기 어려워, 탐지를 위해서는 오디오 신호 내부에 내재된 생성 흔적을 정밀하게 분석해야 한다. 따라서 본 데이터셋은 기존 탐지 모델이 동기화 단서에 얼마나 의존하고 있는지를 평가하고, 오디오 기반 위조 단서에 대한 강건성을 검증하는 데 적합한 실험 환경을 제공한다.
+
+            실험에서는 제안된 오디오 중심 탐지 모델과 기존의 오디오–시각 동기화 기반 딥페이크 탐지 모델들을 동일한 학습 및 평가 프로토콜 하에서 비교하였다. 그 결과, Refined RVFA 환경에서 대부분의 기존 모델은 뚜렷한 성능 저하를 보인 반면, 제안된 오디오 중심 잔차 학습 모델은 높은 탐지 정확도를 안정적으로 유지하였다. 이는 본 연구의 접근 방식이 단순한 모달리티 정합 여부가 아니라, 오디오 생성 과정에서 발생하는 분포적 불일치를 효과적으로 학습하고 있음을 시사한다.
+          </p>
+        </div>
+
 
       </div>
     </div>
@@ -191,7 +200,7 @@
 
         <div class="content has-text-justified">
           <p>
-            [Write your experimental results description here.]
+            설명
           </p>
         </div>
 
@@ -222,7 +231,7 @@
 
         <div class="content has-text-justified">
           <p>
-            [Write additional analysis text here.]
+            설명
           </p>
         </div>
 
